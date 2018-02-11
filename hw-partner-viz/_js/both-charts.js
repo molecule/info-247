@@ -143,7 +143,7 @@ var options = {
     },
 
     tooltip: {
-        valueSuffix: "patients"
+        valueSuffix: " errors"
     },
 
     legend: {
