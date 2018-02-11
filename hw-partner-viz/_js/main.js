@@ -75,9 +75,12 @@ var options = {
 
 //PART 2: LOADING DATA FROM A CSV USING AJAX
 
-/*Once you have the code above working and generating a chart, comment out the var chart line directly above here and
-uncomment the code below to load the data from the csv using AJAX. You will need to follow the instructions in the code below
-to fill in this code and pull in the data. Delete the "/*" at the beginning of the next line and the "* /" at the bottom of the
+/*Once you have the code above working and generating a chart, comment out the var 
+chart line directly above here and
+uncomment the code below to load the data from the csv using AJAX. You will need 
+to follow the instructions in the code below
+to fill in this code and pull in the data. Delete the "/*" at the beginning of the 
+next line and the "* /" at the bottom of the
 code to get started.*/
 
 // Ajax call to pull in data from the csv file data.csv
@@ -89,6 +92,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
     var lines = data.split("\n"); // Note: if using sublime2, it automatically changes line endings.
                                     // this works w/ "Windows" or "Unix" style line endings, but not "Mac"
     console.log("lines: " + lines);
+    var dataCategories = {};
 
     //loop through each line of the csv file using $.each
     //Remember: the first argument to the each function is the index iterator
@@ -105,9 +109,11 @@ $.get("_data/HospitalErrors.csv", function (data) {
             // Loop through each item in the array items
             $.each(items, function (itemNo, item) {
                 // Skip the first item in line 0 because it is the City label
-                // For the rest of the first row of data add to the categories variable for the xAxis using push method within the if statement
+                // For the rest of the first row of data add to the categories 
+                // variable for the xAxis using push method within the if statement
                 if (itemNo != 0) {
-                    // ***Add code here*** to use the push method to push each item to the xAxis categories property in options
+                    // ***Add code here*** to use the push method to push each item 
+                    // to the xAxis categories property in options
                     console.log("item: " + item);
                     options.xAxis.categories.push(item);
                 }
@@ -128,20 +134,23 @@ $.get("_data/HospitalErrors.csv", function (data) {
                 // Skip the first value in items since you already set it as name
                 if (itemNo != 0) {
                     // ***Add code here*** to push values to seriesData.data
-                    // Note: you will need to use Number() to change the values from the csv file from strings to floats
+                    // Note: you will need to use Number() to change the values from the 
+                    // csv file from strings to floats
                     //console.log("item in series: " + item);
                     seriesData.data.push(Number(item));
                 };
             })
             //console.log("seriesData")
-            // Now you have your var seriesData populated with the cities in name and the temperatures in data
+            // Now you have your var seriesData populated with the cities in name and 
+            // the temperatures in data
             // ***Add code here*** to push seriesData to series in chart options
             options.series.push(seriesData);
 
         };
     });
     // ***Add code here***
-    // Now you can draw the chart by creating a new Highcharts object with the settings defined in options
+    // Now you can draw the chart by creating a new Highcharts object with the settings 
+    //defined in options
     var chart = new Highcharts.Chart(options);
 
 });
