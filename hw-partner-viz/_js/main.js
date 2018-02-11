@@ -47,7 +47,7 @@ var options = {
         },
 
     title: {
-        text: "Percent Mortality Rates Decrease Each Year"
+        text: "Occurrences of Avoidable Medical and Operational Errors Decrease Each Year"
     },
 
     subtitle: {
