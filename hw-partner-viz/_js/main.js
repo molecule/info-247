@@ -22,7 +22,7 @@ var options = {
 
     // ***Add*** title text
     title: {
-        text: "Monthly Average Temperature in Four Cities"
+        text: "Percent Mortality Rates Decrease Each Year"
     },
     
 
@@ -96,7 +96,8 @@ $.get("_data/HospitalErrors.csv", function (data) {
     // ***Add code here*** to create a variable "lines" that splits the csv by line using ("\n")
     // Need a hint? The JavaScript string split method is the same as in python
 
-    var lines = data.split("\n");
+    var lines = data.split("\n"); // Note: if using sublime2, it automatically changes line endings.
+                                    // this works w/ "Windows" or "Unix" style line endings, but not "Mac"
     console.log("lines: " + lines);
 
     //loop through each line of the csv file using $.each
@@ -105,7 +106,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
 
         // ***Add code here*** to set var items equal to an array of the current line's values
         // Make sure to turn each line into an array by splitting on ","
-
+        console.log("line: " + line);
         var items = line.split(",");
         console.log("items: " + items);
 
@@ -138,11 +139,11 @@ $.get("_data/HospitalErrors.csv", function (data) {
                 if (itemNo != 0) {
                     // ***Add code here*** to push values to seriesData.data
                     // Note: you will need to use Number() to change the values from the csv file from strings to floats
-                    console.log("item in series: " + item);
+                    //console.log("item in series: " + item);
                     seriesData.data.push(Number(item));
                 };
             })
-            console.log("seriesData")
+            //console.log("seriesData")
             // Now you have your var seriesData populated with the cities in name and the temperatures in data
             // ***Add code here*** to push seriesData to series in chart options
             options.series.push(seriesData);
@@ -151,6 +152,6 @@ $.get("_data/HospitalErrors.csv", function (data) {
     });
     // ***Add code here***
     // Now you can draw the chart by creating a new Highcharts object with the settings defined in options
-    //var chart = new Highcharts.Chart(options);
+    var chart = new Highcharts.Chart(options);
 
 });
