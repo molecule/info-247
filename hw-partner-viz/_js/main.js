@@ -51,11 +51,11 @@ var options = {
 
     // Data for the chart, hardcoded inline; leave as such for Part 1
     // For Part 2 comment out this data and replace with an empty array for series 'series: []'
-    series: []
-    /*
+    //series: []
+    
     series: [{
-        name: 'Berkeley',
-        data: [9.3,10.9,11.8,12.9,14.3,16,16.4,16.5,17.1,15.9,13,9.9]
+        name: 'SurgicalInfection',
+        data: [45,20,10,5]
     },{
         name: 'Vancouver',
         data: [2.7,4.4,6.1,8.9,12.3,15.1,17.3,17.1,14.3,10.0,5.9,3.7,9.8]
@@ -66,7 +66,6 @@ var options = {
         name: 'Sydney',
         data: [22.1,22.1,21.0,18.4,15.3,12.9,12.0,13.2,15.3,17.7,19.5,21.2,17.6]
     }]
-    */
 };
 
 // Generate the chart (comment this out for part 2)
@@ -104,21 +103,28 @@ $.get("_data/HospitalErrors.csv", function (data) {
         var items = line.split(",");
         console.log("items: " + items);
 
-        // For first line of data (header) populate xAxis categories with months
+        // For first line of data, grab data categories.
+        //populate xAxis categories with months
         if (lineNo == 0) {
+            console.log("lineNo == 0");
             // Loop through each item in the array items
             $.each(items, function (itemNo, item) {
-                // Skip the first item in line 0 because it is the City label
-                // For the rest of the first row of data add to the categories 
-                // variable for the xAxis using push method within the if statement
-                if (itemNo != 0) {
-                    // ***Add code here*** to use the push method to push each item 
-                    // to the xAxis categories property in options
-                    console.log("item: " + item);
-                    options.xAxis.categories.push(item);
-                }
+                console.log("item: " + item + ", itemNo: " + itemNo);
+                dataCategories[String(item)] = []; // each category is an empty array waiting to be filled.
+
+                console.log(dataCategories);
             })
 
+        // For second line of data, grab x-axis categories.
+        } if (lineNo == 1) {
+            // Loop through each item in the array items
+            console.log("lineNo == 1");
+            $.each(items, function (itemNo, item) {
+                // Use the push method to push each item 
+                // to the xAxis categories property in options
+                console.log("item: " + item);
+                options.xAxis.categories.push(item);
+            })
         } else {
             var seriesData = {
                 name: "",
