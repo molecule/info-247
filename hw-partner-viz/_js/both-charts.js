@@ -178,10 +178,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
         var items = line.split(",");
         console.log("items: " + items);
 
-        // For first line of data, grab data categories.
-        if (lineNo == 0) {
-            console.log("lineNo == 0");
-        } else {
+        if (lineNo != 0) { // first line is categories.
             var seriesData = {
                 name: "",
                 data: []
