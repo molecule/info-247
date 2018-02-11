@@ -1,12 +1,16 @@
 ### Setup
 
-1. Start local server:
+1. Start local server in the same folder as index.html file:
 
 For python 2:
+```
 python -m SimpleHTTPServer
+```
 
 For python 3:
+```
 python -m http.server
+```
 
 2. Load file into browser:
 
