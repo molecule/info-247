@@ -215,7 +215,12 @@ $.get("_data/HospitalErrors.csv", function (data) {
 var options_trainingDays = {
     chart: {
         renderTo: "container-trainingDays",
-        type: "column"
+        type: "column",
+        /*
+        events: {
+            load: addCalloutBubbles
+          }
+          */
         },
 
     title: {
@@ -266,9 +271,10 @@ var options_trainingDays = {
             justify: false,
             crop: true,
             style: {
-                fontSize: '0.8em',
+                fontSize: '1em',
                 textOutline: '1px white'
-            }
+            },
+            allowOverlap: false
         },
         labels: [{
             point: {
@@ -277,12 +283,26 @@ var options_trainingDays = {
                 x: 2015,
                 y: 0
             },
-            text: 'Training days completely eliminated'
+            text: 'Zero training <br> days.'
         }]
     }],
 
     series: []
 };
+
+function addCalloutBubbles() {
+    console.log("addCalloutBubbles, series[0]: ");
+    console.log(options_trainingDays.series[0]);
+    options_trainingDays.series[0].points[1].update({
+      dataLabels: {
+        enabled: true,
+        format: 'Early 1980s<br>recession',
+        align: 'left',
+        verticalAlign: 'middle',
+        x: 13
+      }
+    });
+}
 
 // Ajax call to pull in data from the csv file data.csv
 $.get("_data/HospitalErrors.csv", function (data) {
