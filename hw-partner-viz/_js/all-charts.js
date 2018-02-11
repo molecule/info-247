@@ -264,29 +264,6 @@ var options_trainingDays = {
         }
     },
 
-    annotations: [{
-        labelOptions: {
-            shape: 'connector',
-            align: 'right',
-            justify: false,
-            crop: true,
-            style: {
-                fontSize: '1em',
-                textOutline: '1px white'
-            },
-            allowOverlap: false
-        },
-        labels: [{
-            point: {
-                xAxis: 0,
-                yAxis: 0,
-                x: 2015,
-                y: 0
-            },
-            text: 'Zero training <br> days.'
-        }]
-    }],
-
     series: []
 };
 
