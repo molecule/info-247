@@ -108,9 +108,8 @@ a:hover {
     padding: 20px;
 }
 
-/* 6. Set the width of the "container" div to 600px and the height to 400px. */
-/*    Make it centered within the "content" div. */
-#container {
+/* // prety sure this is unused since I renamed the containers.*/
+#container { 
 	width: 600px;
 	height: 400px;
 	margin: 0 auto;
