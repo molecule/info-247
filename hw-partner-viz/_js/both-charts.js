@@ -173,6 +173,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
     console.log("lines: " + lines);
 
     $.each(lines, function ( lineNo, line ) {
+        var itemIndex = 1; // 1st elem is # occurrences
         console.log("line: " + line);
         var items = line.split(",");
         console.log("items: " + items);
@@ -186,18 +187,18 @@ $.get("_data/HospitalErrors.csv", function (data) {
             var found = false;
             $.each(options.series, function ( seriesNo, serie ) {
                 if (serie.name === items[0]) { // already have this category
-                    serie.data.unshift(Number(items[1]));
+                    serie.data.unshift(Number(items[itemIndex]));
                     found = true;
                 }
             })
 
-            console.log("items[1]: " + items[0]);
+            console.log("items[0]: " + items[0]);
             console.log("colors: " + colors[items[0]]);
 
             if (!found) { // add a new category
                 options.series.push({
                     name: items[0],
-                    data: [Number(items[1])],
+                    data: [Number(items[itemIndex])],
                     color: colors(items[0])
                 })
             }
@@ -213,11 +214,11 @@ $.get("_data/HospitalErrors.csv", function (data) {
 var options_trainingDays = {
     chart: {
         renderTo: "container-trainingDays",
-        type: "bar"
+        type: "column"
         },
 
     title: {
-        text: "Average Number of Training Days"
+        text: "Average Number of Training Days Decreases"
     },
 
     subtitle: {
@@ -238,7 +239,7 @@ var options_trainingDays = {
     },
 
     tooltip: {
-        valueSuffix: " errors"
+        valueSuffix: " training days"
     },
 
     legend: {
@@ -268,6 +269,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
     console.log("lines: " + lines);
 
     $.each(lines, function ( lineNo, line ) {
+        var itemIndex = 4; // 4th elem is # training days.
         console.log("line: " + line);
         var items = line.split(",");
         console.log("items: " + items);
@@ -281,18 +283,17 @@ $.get("_data/HospitalErrors.csv", function (data) {
             var found = false;
             $.each(options_trainingDays.series, function ( seriesNo, serie ) {
                 if (serie.name === items[0]) { // already have this category
-                    serie.data.unshift(Number(items[1]));
+                    serie.data.unshift(Number(items[itemIndex]));
                     found = true;
                 }
             })
 
             console.log("items[1]: " + items[0]);
-            console.log("colors: " + colors[items[0]]);
 
             if (!found) { // add a new category
                 options_trainingDays.series.push({
                     name: items[0],
-                    data: [Number(items[1])],
+                    data: [Number(items[itemIndex])],
                     color: colors(items[0])
                 })
             }
