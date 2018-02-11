@@ -1,16 +1,6 @@
 "use strict";
-// LAB 3
-// GOALS:
-// -Be able to set up and adjust chart options using the Highcharts API documentation
+// Highcharts API documentation
 // (available at: http://api.highcharts.com/highcharts)
-
-// -Be able to load data from a csv file using AJAX
-
-// INSTRUCTIONS:
-// You do not need to update the html or css. Just work on the script in this file.
-// Part 1 is to set up the chart options and render a chart using the inline data.
-// Part 2 is to load external data to the chart you have just set up.
-// Follow the instructions in the code below and let us know if you have questions!
 
 // PART 1: SET UP CHART OPTIONS & GENERATE USING INLINE DATA
 var options = {
