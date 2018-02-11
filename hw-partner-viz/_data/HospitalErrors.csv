@@ -1,5 +1,4 @@
 ProblemType,NumOccurrences,Year,AvgNumDaysTraining,%Mortality
-SurgicalInfection,CatheterInfection,SurgicalError,IncorrectDosage,IncorrectMedication,DelayInTreatment,Misdiagnosis,IVError
 SurgicalInfection,3000,2015,10,5
 CatheterInfection,500,2015,5,2
 SurgicalError,1000,2015,50,0

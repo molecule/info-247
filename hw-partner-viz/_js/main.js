@@ -114,17 +114,6 @@ $.get("_data/HospitalErrors.csv", function (data) {
 
                 console.log(dataCategories);
             })
-
-        // For second line of data, grab x-axis categories.
-        } if (lineNo == 1) {
-            // Loop through each item in the array items
-            console.log("lineNo == 1");
-            $.each(items, function (itemNo, item) {
-                // Use the push method to push each item 
-                // to the xAxis categories property in options
-                console.log("item: " + item);
-                options.xAxis.categories.push(item);
-            })
         } else {
             var seriesData = {
                 name: "",
@@ -132,7 +121,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
             };
 
             // Grab the seriesData obect and populate with data from items
-            // ***Add code here*** to set seriesData.name to the first value in items
+            console.log("items[0]: " + items[0]); // Should be error type.
             seriesData.name = items[0];
 
             // Loop through each item in the array items for the current line and add it to the data array
