@@ -38,23 +38,16 @@ var options_percentageMortality = {
 
         },
 
-    // ***Add*** title text
     title: {
         text: 'Percentage Mortality Per Problem Type vs Year',
         x: -20 //center
       },
 
+      subtitle: {
+        text: "Source: Info247-fictitious-data.edu"
+    },
 
 
-    // ***Add*** subtitle text
-    /*subtitle: {
-        text: 'Source WorldClimate.com',
-        //x: -40
-        align: 'center'
-    },*/
-
-
-    // We can leave the x-axis categories blank for now. By default, highcharts will put numbers there.
     xAxis: {
             categories: ['2012', '2013','2014','2015']
     },
