@@ -1,8 +1,5 @@
 "use strict";
-// Highcharts API documentation
-// (available at: http://api.highcharts.com/highcharts)
 
-// function to return color
 function colors(name) {
     var val = name.toLowerCase();
     console.log("colors, val: " + val);
@@ -34,6 +31,91 @@ function colors(name) {
     };
   };
 
+var options_percentageMortality = {
+    chart: {
+        renderTo: "container-percentageMortality",
+        type: "line"
+
+        },
+
+    // ***Add*** title text
+    title: {
+        text: 'Percentage Mortality Per Problem Type vs Year',
+        x: -20 //center
+      },
+
+
+
+    // ***Add*** subtitle text
+    /*subtitle: {
+        text: 'Source WorldClimate.com',
+        //x: -40
+        align: 'center'
+    },*/
+
+
+    // We can leave the x-axis categories blank for now. By default, highcharts will put numbers there.
+    xAxis: {
+            categories: ['2012', '2013','2014','2015']
+    },
+
+    // declaring y-axis options
+    yAxis: {
+        title: {
+            text: 'Mortality (%)'
+
+        },
+        tickInterval: 10,
+        max: 100
+    },
+
+    tooltip: {
+        // ***Add*** a suffix to your tooltip to show that the temperatures are in Celsius
+        valueSuffix: "%"
+    },
+
+    legend: {
+        // ***Add*** in the legend variables such that you have a vertical legend on the right side
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+    },
+
+    series: []
+};
+
+
+
+$.get("_data/HospitalErrors-edited.csv", function (data) {
+    var lines = data.split("\n") ;
+    $.each(lines, function ( lineNo, line ) {
+        var items = line.split(",") ;
+        if (lineNo == 0) {
+            $.each(items, function (itemNo, item) {
+                if (itemNo != 0) {
+                    options_percentageMortality.xAxis.categories.push(item);
+                }
+            })
+
+        } else {
+            var seriesData = {
+                name: "",
+                data: [],
+                color: colors(items[0])
+            };
+            seriesData.name = items[0];
+            $.each(items, function (itemNo, item) {
+      				if (itemNo >= 9) {
+  						    seriesData.data.push(Number(item));
+      				}
+      			})
+            options_percentageMortality.series.push(seriesData);
+        };
+    });
+    var chart = new Highcharts.Chart(options_percentageMortality);
+});
+
 Highcharts.setOptions({
     lang: {
         thousandsSep: ',' // add "," at appropriate points in numbers.
@@ -42,7 +124,7 @@ Highcharts.setOptions({
 
 var options = {
     chart: {
-        renderTo: "container",
+        renderTo: "container-numOccurrences",
         type: "line"
         },
 
@@ -139,3 +221,4 @@ $.get("_data/HospitalErrors.csv", function (data) {
     var chart = new Highcharts.Chart(options);
 
 });
+
