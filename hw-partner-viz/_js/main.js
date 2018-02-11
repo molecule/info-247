@@ -92,7 +92,7 @@ code to get started.*/
 
 // Ajax call to pull in data from the csv file data.csv
 
-$.get("_data/data.csv", function (data) {
+$.get("_data/HospitalErrors.csv", function (data) {
     // ***Add code here*** to create a variable "lines" that splits the csv by line using ("\n")
     // Need a hint? The JavaScript string split method is the same as in python
 
@@ -151,6 +151,6 @@ $.get("_data/data.csv", function (data) {
     });
     // ***Add code here***
     // Now you can draw the chart by creating a new Highcharts object with the settings defined in options
-    var chart = new Highcharts.Chart(options);
+    //var chart = new Highcharts.Chart(options);
 
 });
