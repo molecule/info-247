@@ -92,9 +92,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
 
         };
     });
-    // ***Add code here***
-    // Now you can draw the chart by creating a new Highcharts object with the settings 
-    //defined in options
+    // Draw the chart
     var chart = new Highcharts.Chart(options);
 
 });
