@@ -288,7 +288,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
     console.log("lines: " + lines);
 
     $.each(lines, function ( lineNo, line ) {
-        var itemIndex = 4; // 4th elem is # training days.
+        var itemIndex = 3; // 3rd elem is # training days.
         console.log("line: " + line);
         var items = line.split(",");
         console.log("items: " + items);
