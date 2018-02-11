@@ -2,26 +2,25 @@
 // Highcharts API documentation
 // (available at: http://api.highcharts.com/highcharts)
 
-// PART 1: SET UP CHART OPTIONS & GENERATE USING INLINE DATA
+Highcharts.setOptions({
+    lang: {
+        thousandsSep: ',' // add "," at appropriate points in numbers.
+    }
+});
+
 var options = {
     chart: {
         renderTo: "container",
-        // ***Add*** chart type here
         type: "line"
         },
 
-    // ***Add*** title text
     title: {
         text: "Percent Mortality Rates Decrease Each Year"
     },
-    
 
-
-    // ***Add*** subtitle text
     subtitle: {
-        text: "Source: WorldClimate.com"
+        text: "Source: Info247-fictitious-data.edu"
     },
-
 
     // We can leave the x-axis categories blank for now. By default, highcharts will put numbers there.
     xAxis: {
@@ -31,18 +30,15 @@ var options = {
     // declaring y-axis options
     yAxis: {
         title: {
-            text: 'Temperature (°C)'
+            text: 'Number of Event Occurrences'
         }
     },
 
     tooltip: {
-        // ***Add*** a suffix to your tooltip to show that the temperatures are in Celsius
-        valueSuffix: "°C"
-
+        valueSuffix: "patients"
     },
 
     legend: {
-        // ***Add*** in the legend variables such that you have a vertical legend on the right side
         layout: 'vertical',
         align: 'right',
         verticalAlign: 'middle',
