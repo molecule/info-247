@@ -1,5 +1,6 @@
 "use strict";
 
+
 function colors(name) {
     var val = name.toLowerCase();
     console.log("colors, val: " + val);
@@ -258,6 +259,27 @@ var options_trainingDays = {
         }
     },
 
+    annotations: [{
+        labelOptions: {
+            shape: 'connector',
+            align: 'right',
+            justify: false,
+            crop: true,
+            style: {
+                fontSize: '0.8em',
+                textOutline: '1px white'
+            }
+        },
+        labels: [{
+            point: {
+                xAxis: 0,
+                yAxis: 0,
+                x: 2015,
+                y: 0
+            },
+            text: 'Training days completely eliminated'
+        }]
+    }],
 
     series: []
 };
