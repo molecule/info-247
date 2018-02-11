@@ -49,14 +49,7 @@ var options = {
         borderWidth: 0
     },
 
-    // Data for the chart, hardcoded inline; leave as such for Part 1
-    // For Part 2 comment out this data and replace with an empty array for series 'series: []'
-    //series: []
-    
-    series: [{
-        name: 'NONSENSE',
-        data: [45,20,10,5]
-    }]
+    series: []
 };
 
 // Ajax call to pull in data from the csv file data.csv
@@ -74,12 +67,6 @@ $.get("_data/HospitalErrors.csv", function (data) {
         // For first line of data, grab data categories.
         if (lineNo == 0) {
             console.log("lineNo == 0");
-            $.each(items, function (itemNo, item) {
-                console.log("item: " + item + ", itemNo: " + itemNo);
-                dataCategories[String(item)] = []; // each category is an empty array waiting to be filled.
-
-                console.log(dataCategories);
-            })
         } else {
             var seriesData = {
                 name: "",
