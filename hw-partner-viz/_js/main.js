@@ -54,17 +54,8 @@ var options = {
     //series: []
     
     series: [{
-        name: 'SurgicalInfection',
+        name: 'NONSENSE',
         data: [45,20,10,5]
-    },{
-        name: 'Vancouver',
-        data: [2.7,4.4,6.1,8.9,12.3,15.1,17.3,17.1,14.3,10.0,5.9,3.7,9.8]
-    }, {
-        name: 'Nairobi',
-        data: [19.5,20.2,20.6,20.3,19.2,17.7,16.8,17.2,18.6,19.7,19.3,19.3,19.0]
-    }, {
-        name: 'Sydney',
-        data: [22.1,22.1,21.0,18.4,15.3,12.9,12.0,13.2,15.3,17.7,19.5,21.2,17.6]
     }]
 };
 
@@ -93,21 +84,14 @@ $.get("_data/HospitalErrors.csv", function (data) {
     console.log("lines: " + lines);
     var dataCategories = {};
 
-    //loop through each line of the csv file using $.each
-    //Remember: the first argument to the each function is the index iterator
     $.each(lines, function ( lineNo, line ) {
-
-        // ***Add code here*** to set var items equal to an array of the current line's values
-        // Make sure to turn each line into an array by splitting on ","
         console.log("line: " + line);
         var items = line.split(",");
         console.log("items: " + items);
 
         // For first line of data, grab data categories.
-        //populate xAxis categories with months
         if (lineNo == 0) {
             console.log("lineNo == 0");
-            // Loop through each item in the array items
             $.each(items, function (itemNo, item) {
                 console.log("item: " + item + ", itemNo: " + itemNo);
                 dataCategories[String(item)] = []; // each category is an empty array waiting to be filled.
@@ -115,23 +99,37 @@ $.get("_data/HospitalErrors.csv", function (data) {
                 console.log(dataCategories);
             })
         } else {
+            console.log("************** POPULATING SERIES DATA");
             var seriesData = {
                 name: "",
                 data: []
             };
-
-            // Grab the seriesData obect and populate with data from items
+            // check to see if that seriesData.name is already there, if so, add to it.
             console.log("items[0]: " + items[0]); // Should be error type.
-            seriesData.name = items[0];
+            console.log(options.series);
+            var found = false;
+            $.each(options.series, function ( seriesNo, serie ) {
+                if (serie.name === items[0]) { // already have this category
+                    serie.data.unshift(Number(items[1]));
+                    found = true;
+                } else {
 
-            // Loop through each item in the array items for the current line and add it to the data array
+                }
+            })
+
+            if (!found) {
+                options.series.push({
+                    name: items[0],
+                    data: [Number(items[1])]
+                })
+            }
+
+            console.log(options.series);
+            /*
             $.each(items, function (itemNo, item) {
-                // Skip the first value in items since you already set it as name
-                if (itemNo != 0) {
-                    // ***Add code here*** to push values to seriesData.data
-                    // Note: you will need to use Number() to change the values from the 
-                    // csv file from strings to floats
-                    //console.log("item in series: " + item);
+                console.log("itemNo: " + itemNo + ", item: " + item);
+                if (itemNo == 4) { // 4th element is "% mortality"
+                    console.log("item in series: " + item);
                     seriesData.data.push(Number(item));
                 };
             })
@@ -140,6 +138,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
             // the temperatures in data
             // ***Add code here*** to push seriesData to series in chart options
             options.series.push(seriesData);
+            */
 
         };
     });
