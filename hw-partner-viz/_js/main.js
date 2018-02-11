@@ -63,7 +63,8 @@ var options = {
     yAxis: {
         title: {
             text: 'Number of Event Occurrences'
-        }
+        },
+        tickInterval: 500
     },
 
     tooltip: {
