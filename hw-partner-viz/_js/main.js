@@ -45,6 +45,16 @@ var options = {
         borderWidth: 0
     },
 
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 2012
+        }
+    },
+
+
     series: []
 };
 
