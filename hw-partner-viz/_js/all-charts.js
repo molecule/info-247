@@ -224,7 +224,7 @@ var options_trainingDays = {
         },
 
     title: {
-        text: "Average Number of Training Days Decreases"
+        text: "Average Number of Training Days Does Not Change"
     },
 
     subtitle: {
