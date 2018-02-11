@@ -171,7 +171,6 @@ $.get("_data/HospitalErrors.csv", function (data) {
     var lines = data.split("\n"); // Note: if using sublime2, it automatically changes line endings.
                                     // this works w/ "Windows" or "Unix" style line endings, but not "Mac"
     console.log("lines: " + lines);
-    var dataCategories = {};
 
     $.each(lines, function ( lineNo, line ) {
         console.log("line: " + line);
@@ -209,6 +208,99 @@ $.get("_data/HospitalErrors.csv", function (data) {
     });
     // Draw the chart
     var chart = new Highcharts.Chart(options);
-
 });
 
+var options_trainingDays = {
+    chart: {
+        renderTo: "container-trainingDays",
+        type: "bar"
+        },
+
+    title: {
+        text: "Average Number of Training Days"
+    },
+
+    subtitle: {
+        text: "Source: Info247-fictitious-data.edu"
+    },
+
+    // We can leave the x-axis categories blank for now. By default, highcharts will put numbers there.
+    xAxis: {
+            categories: []
+    },
+
+    // declaring y-axis options
+    yAxis: {
+        title: {
+            text: 'Average Number of Training Days'
+        },
+        //tickInterval: 500
+    },
+
+    tooltip: {
+        valueSuffix: " errors"
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 2012
+        }
+    },
+
+
+    series: []
+};
+
+// Ajax call to pull in data from the csv file data.csv
+$.get("_data/HospitalErrors.csv", function (data) {
+    var lines = data.split("\n"); // Note: if using sublime2, it automatically changes line endings.
+                                    // this works w/ "Windows" or "Unix" style line endings, but not "Mac"
+    console.log("lines: " + lines);
+
+    $.each(lines, function ( lineNo, line ) {
+        console.log("line: " + line);
+        var items = line.split(",");
+        console.log("items: " + items);
+
+        if (lineNo != 0) { // first line is categories.
+            var seriesData = {
+                name: "",
+                data: []
+            };
+            // check to see if that seriesData.name is already there, if so, add to it.
+            var found = false;
+            $.each(options_trainingDays.series, function ( seriesNo, serie ) {
+                if (serie.name === items[0]) { // already have this category
+                    serie.data.unshift(Number(items[1]));
+                    found = true;
+                }
+            })
+
+            console.log("items[1]: " + items[0]);
+            console.log("colors: " + colors[items[0]]);
+
+            if (!found) { // add a new category
+                options_trainingDays.series.push({
+                    name: items[0],
+                    data: [Number(items[1])],
+                    color: colors(items[0])
+                })
+            }
+
+            console.log(options_trainingDays.series);
+
+        };
+    });
+    // Draw the chart
+    var chart = new Highcharts.Chart(options_trainingDays);
+});
