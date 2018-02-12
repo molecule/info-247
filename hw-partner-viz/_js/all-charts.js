@@ -272,7 +272,7 @@ var options_trainingDays = {
             color: 'black',
             dashStyle: 'dot',
             width: 2,
-            value: 0.5,
+            value: 0.35,
             label: {
                 rotation: 0,
                 y: 15,
@@ -287,7 +287,7 @@ var options_trainingDays = {
         }],
         plotBands: {
             color: 'rgba(0, 0, 0, 0.03)',
-            from: 0.5,
+            from: 0.35,
             to: 4
         }
     },
