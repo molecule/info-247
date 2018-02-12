@@ -51,21 +51,28 @@ var options_percentageMortality = {
 
     xAxis: {
         categories: ['2012', '2013','2014','2015'],
+        plotLines: [{
+            color: 'black',
+            dashStyle: 'dot',
+            width: 2,
+            value: 0.5,
+            label: {
+                rotation: 0,
+                y: 15,
+                style: {
+                    fontStyle: 'italic',
+                    fontSize: '12px',
+                    fontWeight: 'bold'
+                },
+                text: '<i>Lisa Simpson joins <br> as Chief Administrator.</i>'
+            },
+            zIndex: 3
+        }],
         plotBands: {
             color: 'rgba(0, 0, 0, 0.03)',
-            from: 1,
-            to: 4,
-            //type: 'datetime',
-            label: { 
-              text: '<i>Lisa Simpson institutes</i><br><i>new training reforms.</i>',
-              align: 'center',
-              style: {
-                fontSize: '12px',
-                fontWeight: 'bold'
-              },
-              y: 30
-            }
-          }
+            from: 0.5,
+            to: 4
+        }
     },
 
     // declaring y-axis options
@@ -148,22 +155,27 @@ var options_numOccurrences = {
     // We can leave the x-axis categories blank for now. By default, highcharts will put numbers there.
     xAxis: {
         categories: ['2012', '2013','2014','2015'],
+        plotLines: [{
+            color: 'black',
+            dashStyle: 'dot',
+            width: 2,
+            value: 0.5,
+            label: {
+                rotation: 0,
+                y: 15,
+                style: {
+                    fontStyle: 'italic',
+                    fontSize: '12px',
+                    fontWeight: 'bold'
+                },
+                text: '<i>Lisa Simpson joins <br> as Chief Administrator.</i>'
+            },
+            zIndex: 3
+        }],
         plotBands: {
-            pointPlacement: "-0.5",
-            //pointRange: "0",
             color: 'rgba(0, 0, 0, 0.03)',
             from: 0.5,
-            to: 4,
-            //type: 'datetime',
-            label: { 
-                text: '<i>Lisa Simpson institutes</i><br><i>new training reforms.</i>',
-                align: 'center',
-                style: {
-                fontSize: '12px',
-                fontWeight: 'bold'
-                },
-                y: 30
-            }
+            to: 4
         }
     },
 
@@ -255,7 +267,29 @@ var options_trainingDays = {
 
     // We can leave the x-axis categories blank for now. By default, highcharts will put numbers there.
     xAxis: {
-            categories: []
+        categories: ['2012', '2013','2014','2015'],
+        plotLines: [{
+            color: 'black',
+            dashStyle: 'dot',
+            width: 2,
+            value: 0.5,
+            label: {
+                rotation: 0,
+                y: 15,
+                style: {
+                    fontStyle: 'italic',
+                    fontSize: '12px',
+                    fontWeight: 'bold'
+                },
+                text: '<i>Lisa Simpson joins <br> as Chief Administrator.</i>'
+            },
+            zIndex: 3
+        }],
+        plotBands: {
+            color: 'rgba(0, 0, 0, 0.03)',
+            from: 0.5,
+            to: 4
+        }
     },
 
     // declaring y-axis options
@@ -275,15 +309,6 @@ var options_trainingDays = {
         align: 'right',
         verticalAlign: 'middle',
         borderWidth: 0
-    },
-
-    plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 2012
-        }
     },
 
     series: []
