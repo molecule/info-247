@@ -50,7 +50,22 @@ var options_percentageMortality = {
 
 
     xAxis: {
-            categories: ['2012', '2013','2014','2015']
+        categories: ['2012', '2013','2014','2015'],
+        plotBands: {
+            color: 'rgba(0, 0, 0, 0.03)',
+            from: 1,
+            to: 4,
+            //type: 'datetime',
+            label: { 
+              text: '<i>Lisa Simpson institutes</i><br><i>new training reforms.</i>',
+              align: 'center',
+              style: {
+                fontSize: '12px',
+                fontWeight: 'bold'
+              },
+              y: 30
+            }
+          }
     },
 
     // declaring y-axis options
