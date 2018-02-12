@@ -21,7 +21,7 @@ function colors(name) {
         return "#DDDDDD";
         break;
       case "delayintreatment":
-        return "#2292A4";
+        return "#033860";
         break;
       case "misdiagnosis":
         return "#4464AD";
@@ -149,8 +149,10 @@ var options_numOccurrences = {
     xAxis: {
         categories: ['2012', '2013','2014','2015'],
         plotBands: {
+            pointPlacement: "-0.5",
+            //pointRange: "0",
             color: 'rgba(0, 0, 0, 0.03)',
-            from: 1,
+            from: 0.5,
             to: 4,
             //type: 'datetime',
             label: { 
