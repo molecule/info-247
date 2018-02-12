@@ -55,7 +55,7 @@ var options_percentageMortality = {
             color: 'black',
             dashStyle: 'dot',
             width: 2,
-            value: 0.5,
+            value: 0.3,
             label: {
                 rotation: 0,
                 y: 15,
@@ -70,7 +70,7 @@ var options_percentageMortality = {
         }],
         plotBands: {
             color: 'rgba(0, 0, 0, 0.03)',
-            from: 0.5,
+            from: 0.3,
             to: 4
         }
     },
@@ -159,7 +159,7 @@ var options_numOccurrences = {
             color: 'black',
             dashStyle: 'dot',
             width: 2,
-            value: 0.5,
+            value: 0.3,
             label: {
                 rotation: 0,
                 y: 15,
@@ -174,7 +174,7 @@ var options_numOccurrences = {
         }],
         plotBands: {
             color: 'rgba(0, 0, 0, 0.03)',
-            from: 0.5,
+            from: 0.3,
             to: 4
         }
     },
