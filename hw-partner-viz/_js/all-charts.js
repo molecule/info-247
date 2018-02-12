@@ -131,7 +131,7 @@ Highcharts.setOptions({
     }
 });
 
-var options = {
+var options_numOccurrences = {
     chart: {
         renderTo: "container-numOccurrences",
         type: "line"
@@ -147,7 +147,22 @@ var options = {
 
     // We can leave the x-axis categories blank for now. By default, highcharts will put numbers there.
     xAxis: {
-            categories: []
+        categories: ['2012', '2013','2014','2015'],
+        plotBands: {
+            color: 'rgba(0, 0, 0, 0.03)',
+            from: 1,
+            to: 4,
+            //type: 'datetime',
+            label: { 
+                text: '<i>Lisa Simpson institutes</i><br><i>new training reforms.</i>',
+                align: 'center',
+                style: {
+                fontSize: '12px',
+                fontWeight: 'bold'
+                },
+                y: 30
+            }
+        }
     },
 
     // declaring y-axis options
@@ -168,16 +183,6 @@ var options = {
         verticalAlign: 'middle',
         borderWidth: 0
     },
-
-    plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 2012
-        }
-    },
-
 
     series: []
 };
@@ -201,7 +206,7 @@ $.get("_data/HospitalErrors.csv", function (data) {
             };
             // check to see if that seriesData.name is already there, if so, add to it.
             var found = false;
-            $.each(options.series, function ( seriesNo, serie ) {
+            $.each(options_numOccurrences.series, function ( seriesNo, serie ) {
                 if (serie.name === items[0]) { // already have this category
                     serie.data.unshift(Number(items[itemIndex]));
                     found = true;
@@ -212,19 +217,19 @@ $.get("_data/HospitalErrors.csv", function (data) {
             console.log("colors: " + colors[items[0]]);
 
             if (!found) { // add a new category
-                options.series.push({
+                options_numOccurrences.series.push({
                     name: items[0],
                     data: [Number(items[itemIndex])],
                     color: colors(items[0])
                 })
             }
 
-            console.log(options.series);
+            console.log(options_numOccurrences.series);
 
         };
     });
     // Draw the chart
-    var chart = new Highcharts.Chart(options);
+    var chart = new Highcharts.Chart(options_numOccurrences);
 });
 
 var options_trainingDays = {
