@@ -1,0 +1,20 @@
+Bibliography
+Annual Arts Basic Survey, 2015 [United States]
+
+This bibliography includes published and unpublished works that are related 
+to ICPSR study 36424. It includes works that are based on primary
+or secondary analysis of the data, or which describe or critique those
+data or the collection methodology. 
+
+If you publish a work or know of other works that are based on these data,
+please send the complete citation and name of the ICPSR study used to:
+icpsr-biblio-notify@umich.edu 
+
+
+1. National Endowment for the Arts, "Results from the Annual Arts Basic
+Survey (AABS)." Updated Aug 2016,.
+Full text: https://www.arts.gov/artistic-fields/research-analysis/arts-data-profiles/arts-data-profile-10
+
+2. National Endowment for the Arts, "State-Level Estimates of Arts
+Participation Patterns (2012-2015)." Updated Aug 2016,.
+Full text: https://www.arts.gov/artistic-fields/research-analysis/arts-data-profiles/arts-data-profile-11

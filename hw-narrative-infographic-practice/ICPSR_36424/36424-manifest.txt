@@ -1,0 +1,65 @@
+File Manifest for ICPSR 36424
+
+National Endowment for the Arts, and United States Department of Commerce.
+Bureau of the Census. Annual Arts Basic Survey, 2015 [United States].
+ICPSR36424-v2. Ann Arbor, MI: Inter-university Consortium for Political and
+Social Research [distributor], 2017-09-11.
+http://doi.org/10.3886/ICPSR36424.v2
+
+Details on the version history can be found below the file listings.
+
+
+Study-level Documentation
+
+    Filename                            Record  Record    Var.    Date        MD5
+                                        Length  Count     Count   Updated     Checksum
+
+    36424-descriptioncitation.pdf       -       -         -       2017-12-19  -
+
+    36424-related_literature.txt        -       -         -       daily       -
+
+    36424-manifest.txt                  -       -         -       daily       -
+
+
+DS0001 Annual Arts Basic Survey, 2015 [United States]
+
+    Filename                            Record  Record    Var.    Date        MD5
+                                        Length  Count     Count   Updated     Checksum
+
+    36424-0001-Codebook.pdf             -       -         -       2017-09-11  465a69f4375d7e17216acee016377385
+
+    36424-0001-Data.dta                 -       151,788   475     2016-08-30  dee5cee7c3d647cf6800b174d29e0549
+
+    36424-0001-Data.rda                 -       151,788   475     2016-08-30  e336cb9470fe751a3c207594629b09de
+
+    36424-0001-Data.sav                 -       151,788   475     2016-08-30  b486a4278d688c578eb6677f30936140
+
+    36424-0001-Data.stc                 -       151,788   475     2016-08-30  359cfc25bb031d16b1a8368a5d71e732
+
+    36424-0001-Data.tsv                 -       151,788   475     2016-08-30  0c6e19a9a20f1f6efb82edda20e46222
+
+    36424-0001-Data.txt                 1074    151,788   475     2016-08-30  ee0706d0049e0fed6f90e9bc22b79132
+
+    36424-0001-Data.xlsx                -       151,788   475     2016-08-30  0d2811f0482796c615280ef3883f000d
+
+    36424-0001-Report-Infographic1.pdf  -       -         -       2017-09-11  86025e22694bf8380250c91336ccb87c
+
+    36424-0001-Report-Infographic2.pdf  -       -         -       2017-09-11  20178a74a18d912515ff0657ae5b30f5
+
+    36424-0001-Setup.dct                -       -         -       2016-08-30  abba8141574de2bf4c4cf0ed0abf4783
+
+    36424-0001-Setup.do                 -       -         -       2016-08-30  5fa57ab67e195e2ef5f3782fc2d3117c
+
+    36424-0001-Setup.sas                -       -         -       2016-08-30  81f1ed74dd4f22f7d82c5142d9f0e4dc
+
+    36424-0001-Setup.sps                -       -         -       2016-08-30  ab5a7d649ca30dc488ef40fb96446ce2
+
+    36424-0001-Supplemental_syntax.do   -       -         -       2016-08-30  623514e0fb2dcd204de2d8fb19602b42
+
+    36424-0001-Supplemental_syntax.sas  -       -         -       2016-08-30  4f62b2fd9b735c0c014e08ab9712823f
+
+
+Version History
+
+2017-09-11 The metadata record and covers for the PDF documents have been
+updated to reflect changes to PI information.
