@@ -17,19 +17,19 @@ var options = {
     chart: {
         renderTo: "container",
         // ***Add*** chart type here
-        type: "line"
+        type: "column"
         },
 
     // ***Add*** title text
     title: {
-        text: "Monthly Average Temperature in Four Cities"
+        text: "Usability Assessment of campus tools."
     },
     
 
 
     // ***Add*** subtitle text
     subtitle: {
-        text: "Source: WorldClimate.com"
+        text: "Source: Custom survey"
     },
 
 
