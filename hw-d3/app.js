@@ -101,7 +101,7 @@ $(function(){
     
     // Step 4: Animate changing the points shown by year here
     // Make the changes
-    svg.select("circle").transition()
+    svg.selectAll("circle").transition()
     .duration(750)
     .attr("cx", d=> xScale(+d['xValue_'+year]))
     .attr("cy", d=> yScale(+d['yValue_'+year]))
