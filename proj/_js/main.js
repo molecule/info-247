@@ -17,7 +17,7 @@ var options = {
     chart: {
         renderTo: "container",
         // ***Add*** chart type here
-        type: "column"
+        type: "line"
         },
 
     // ***Add*** title text
@@ -41,13 +41,13 @@ var options = {
     // declaring y-axis options
     yAxis: {
         title: {
-            text: 'Temperature (°C)'
+            text: 'Number of participants (%)'
         }
     },
 
     tooltip: {
         // ***Add*** a suffix to your tooltip to show that the temperatures are in Celsius
-        valueSuffix: "°C"
+        valueSuffix: "%"
 
     },
 
