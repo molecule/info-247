@@ -36,14 +36,13 @@ $(function(){
     // Set xScale and yScale to the scales so you can use them outside this function.
     
     // Add code here
+    // data_copy was "real" data:
     // x axis is amount of ice cream
     // Sweden source: https://www.statista.com/statistics/562480/per-capita-consumption-of-ice-cream-in-sweden/
     // US source: https://www.foodmanufacturing.com/data-focus/2017/09/capita-consumption-ice-cream-us-2000-2016
     // y axis is temp.
     // data harvested by hand from here: https://www.timeanddate.com/weather/usa/berkeley/historic
     
-    //xScale = d3.scaleLinear().domain([0,15]).range([0, 120]);
-    //yScale = d3.scaleLinear().domain([0, 100]).range([0, 120]);
     xScale = d3.scaleLinear().domain([0, 15]).range([0, width]);
     svg.append('g').attr('class', 'x axis').call(d3.axisTop(xScale));
 
@@ -57,13 +56,6 @@ $(function(){
       .data(data)
       .enter()
       .append('circle')
-      // Let's add in the following attributes:
-        // The y position of each rectangle will be based on the value's index position,
-        // with a space of 2 between each rectangle (for a total difference of 22)
-        // Each rectangle will have a height of 20.
-        // The rectangles will have an x position of 0.
-        // At the beginning, the rectangles will have a width of 0 so that they will "grow in" through animation.
-        // but for now, set their width to xScale(parseFloat(d.population)) so that you can see the chart.
       .attr('cx', d=> { 
         console.log(d["xValue_2012"]);
         return xScale(+d["xValue_2012"]) }) 
