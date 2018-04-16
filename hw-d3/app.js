@@ -71,9 +71,9 @@ $(function(){
       .attr('cy', d=> yScale(+d["yValue_2012"]))
       .style("fill", function(d) { 
           if (d["category"] == "Chaotic"){
-            return "black";
+            return "red";
           }else{
-            return "red"; 
+            return "black"; 
           }});
 
     // // Add axes (uncomment this code to add axes)
@@ -102,7 +102,16 @@ $(function(){
     // Step 4: Animate changing the points shown by year here
     // Make the changes
     svg.selectAll("circle").transition()
-    .duration(750)
+    .styleTween("fill", function(d) {
+      return function(t) {
+        if (d["category"] == "Chaotic"){
+          return "hsl(" + t * 360 + d["xValue_"+year]*10+d["yValue_"+year]*10+",100%,50%)";
+        } else {
+          return "black";
+        }
+      }
+    })
+    .duration(1500)
     .ease(d3.easeBounce)
     .attr("cx", d=> xScale(+d['xValue_'+year]))
     .attr("cy", d=> yScale(+d['yValue_'+year]))
