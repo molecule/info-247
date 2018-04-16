@@ -64,7 +64,7 @@ $(function(){
       .style("fill", function(d) { 
           if (d["category"] == "Normal"){
             return "red";
-          }else{
+          } else{
             return "black"; 
           }});
 
@@ -94,6 +94,7 @@ $(function(){
     // Step 4: Animate changing the points shown by year here
     // Make the changes
     svg.selectAll("circle").transition()
+    // custom rainbow interpolator: https://github.com/d3/d3-transition#modifying-elements
     .styleTween("fill", function(d) {
       return function(t) {
         if (d["category"] == "Rainbow"){
@@ -104,6 +105,7 @@ $(function(){
       }
     })
     .duration(1500)
+    // ease bounce: https://github.com/d3/d3-transition#transition_ease
     .ease(d3.easeBounce)
     .attr("cx", d=> xScale(+d['xValue_'+year]))
     .attr("cy", d=> yScale(+d['yValue_'+year]))
