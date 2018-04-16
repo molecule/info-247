@@ -70,7 +70,7 @@ $(function(){
       .attr('r', 10)
       .attr('cy', d=> yScale(+d["yValue_2012"]))
       .style("fill", function(d) { 
-          if (d["category"] == "Chaotic"){
+          if (d["category"] == "Normal"){
             return "red";
           }else{
             return "black"; 
@@ -104,7 +104,7 @@ $(function(){
     svg.selectAll("circle").transition()
     .styleTween("fill", function(d) {
       return function(t) {
-        if (d["category"] == "Chaotic"){
+        if (d["category"] == "Rainbow"){
           return "hsl(" + t * 360 + d["xValue_"+year]*10+d["yValue_"+year]*10+",100%,50%)";
         } else {
           return "black";
