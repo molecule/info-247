@@ -44,18 +44,37 @@ $(function(){
     
     //xScale = d3.scaleLinear().domain([0,15]).range([0, 120]);
     //yScale = d3.scaleLinear().domain([0, 100]).range([0, 120]);
-    var xScale = d3.scaleLinear().domain([0, 10]).range([0, width]);
+    xScale = d3.scaleLinear().domain([0, 15]).range([0, width]);
     svg.append('g').attr('class', 'x axis').call(d3.axisTop(xScale));
 
-    var yScale = d3.scaleLinear().domain([0, 10]).range([0, height]);
+    yScale = d3.scaleLinear().domain([0, 15]).range([height, 0]);
     svg.append('g').attr('class', 'y axis').call(d3.axisLeft(yScale));
 
     console.log("created scales...");
 
-    //svg.append('g').attr('class', 'x axis').call(d3.axisTop(xScale));
-
-
-    // Step 3: Add code to color the points by category (add code here or above)
+    // Now let's bind that data to our SVG.
+    svg.selectAll('circle')
+      .data(data)
+      .enter()
+      .append('circle')
+      // Let's add in the following attributes:
+        // The y position of each rectangle will be based on the value's index position,
+        // with a space of 2 between each rectangle (for a total difference of 22)
+        // Each rectangle will have a height of 20.
+        // The rectangles will have an x position of 0.
+        // At the beginning, the rectangles will have a width of 0 so that they will "grow in" through animation.
+        // but for now, set their width to xScale(parseFloat(d.population)) so that you can see the chart.
+      .attr('cx', d=> { 
+        console.log(d["xValue_2012"]);
+        return xScale(+d["xValue_2012"]) }) 
+      .attr('r', 10)
+      .attr('cy', d=> yScale(+d["yValue_2012"]))
+      .style("fill", function(d) { 
+          if (d["category"] == "Chaotic"){
+            return "black";
+          }else{
+            return "red"; 
+          }});
 
     // // Add axes (uncomment this code to add axes)
     graphArea.append('g')
@@ -78,16 +97,19 @@ $(function(){
     } else {
       year = year + 1;
     }
-    var xColumn = 'xValue_' + String(year);
-    var yColumn = 'yValue_' + String(year);
+    console.log(year)
     
     // Step 4: Animate changing the points shown by year here
-
-    // Add code here
-
+    // Make the changes
+    svg.select("circle").transition()
+    .duration(750)
+    .attr("cx", d=> xScale(+d['xValue_'+year]))
+    .attr("cy", d=> yScale(+d['yValue_'+year]))
 
   });
 
 });
+
+
 
 // Step 5: make some other change to the graph
