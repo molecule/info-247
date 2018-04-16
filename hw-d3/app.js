@@ -103,6 +103,7 @@ $(function(){
     // Make the changes
     svg.selectAll("circle").transition()
     .duration(750)
+    .ease(d3.easeBounce)
     .attr("cx", d=> xScale(+d['xValue_'+year]))
     .attr("cy", d=> yScale(+d['yValue_'+year]))
 
